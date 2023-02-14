@@ -5,14 +5,17 @@ public class Plateau {
     private int x_axis;
     private int y_axis;
 
-    private Plateau grid;
-    public Plateau(int x, int y) {
+    private static Plateau plateau;
+    private Plateau(int x, int y) {
         this.x_axis = x;
         this.y_axis = y;
     }
 
-    public Plateau getGrid() {
-
-        return grid;
+    public static synchronized Plateau getInstance(int x, int y) {
+        if (plateau == null)
+            plateau=new Plateau(x,y);
+        return plateau;
     }
+
+
 }

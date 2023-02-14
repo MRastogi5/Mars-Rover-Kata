@@ -8,13 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class PlateauTest {
     @Test
     public void testPlateauGrid(){
-        Plateau plateau = new Plateau(0,0);
+        Plateau plateau = Plateau.getInstance(0,0);
         assertNotNull(plateau);
     }
 
     @Test
-    public void testGetPlateauGrid(){
-        Plateau plateau = new Plateau(0,0);
-        assertEquals(plateau, plateau.getGrid());
+    public void testPlateauGridGetGrid(){
+        Plateau plateau = Plateau.getInstance(0,0);
+        assertEquals(plateau, Plateau.getInstance(1,1));
     }
+
 }
