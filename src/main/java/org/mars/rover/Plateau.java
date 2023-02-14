@@ -2,17 +2,17 @@ package org.mars.rover;
 
 public class Plateau {
 
-    private int x;
-    private int y;
+    private int x_axis;
+    private int y_axis;
 
-    private Plateau p;
+    private Plateau grid;
     public Plateau(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.x_axis = x;
+        this.y_axis = y;
     }
 
     public Plateau getGrid() {
 
-        return p;
+        return grid;
     }
 }
