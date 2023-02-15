@@ -4,19 +4,19 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Rover {
-    private int x;
-    private int y;
+    private int x_axis;
+    private int y_axis;
     char rover_direction;
     List<Character> movingDirectionLeft = Arrays.asList(new Character[]{'N', 'W', 'S', 'E'});
-    public Rover(int x, int y, char direction) {
-        this.x = x;
-        this.y = y;
-        this.rover_direction = direction;
 
+    public Rover(int x_axis, int y_axis, char direction) {
+        this.x_axis = x_axis;
+        this.y_axis = y_axis;
+        this.rover_direction = direction;
     }
 
     public String getPosition() {
-        return x +" "+y;
+        return x_axis + " " + y_axis;
     }
 
     public char getDirectionFacing() {
@@ -25,26 +25,40 @@ public class Rover {
 
     public char turnLeft() {
 
-         int index = movingDirectionLeft.indexOf(rover_direction);
-         if(index==(movingDirectionLeft.size()-1)){
-             return rover_direction = movingDirectionLeft.get(0);
-         }
-         else {
-             return rover_direction = movingDirectionLeft.get(index+1);
+        int index = movingDirectionLeft.indexOf(rover_direction);
+        if (index == (movingDirectionLeft.size() - 1)) {
+            return rover_direction = movingDirectionLeft.get(0);
+        } else {
+            return rover_direction = movingDirectionLeft.get(index + 1);
         }
     }
 
     public char turnRight() {
         int index = movingDirectionLeft.indexOf(rover_direction);
-        if(index==0){
-            return rover_direction = movingDirectionLeft.get(movingDirectionLeft.size()-1);
-        }
-        else {
-            return rover_direction = movingDirectionLeft.get(index-1);
+        if (index == 0) {
+            return rover_direction = movingDirectionLeft.get(movingDirectionLeft.size() - 1);
+        } else {
+            return rover_direction = movingDirectionLeft.get(index - 1);
         }
     }
 
     public String move() {
-        return "";
+
+        switch (rover_direction) {
+            case 'N':
+                ++y_axis;
+                break;
+            case 'E':
+                ++x_axis;
+                break;
+
+            case 'S':
+                --y_axis;
+                break;
+            case 'W':
+                --x_axis;
+                break;
+        }
+        return x_axis +" "+ y_axis +" "+ rover_direction;
     }
 }

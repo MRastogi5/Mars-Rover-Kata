@@ -48,8 +48,24 @@ public class RoverTest {
     }
 
     @Test
-    public void testMoveRoverOneStep(){
+    public void testMoveRoverOneStepNorth(){
         Rover rover = new Rover(3,2,'N');
-        //assertEquals('E', rover.move());
+        assertEquals("3 3 N", rover.move());
+    }
+
+    @Test
+    public void testMoveRoverOneStepSouth(){
+        Rover rover = new Rover(3,2,'S');
+        assertEquals("3 1 S", rover.move());
+    }
+    @Test
+    public void testMoveRoverOneStepEast(){
+        Rover rover = new Rover(3,2,'E');
+        assertEquals("4 2 E", rover.move());
+    }
+    @Test
+    public void testMoveRoverOneStepWest(){
+        Rover rover = new Rover(3,2,'W');
+        assertEquals("2 2 W", rover.move());
     }
 }
