@@ -14,7 +14,7 @@ public class RoverTest {
     @Test
     public void testGetRoverPosition(){
         Rover rover = new Rover(0,0,'N');
-        assertEquals("0 0",rover.getPosition());
+        assertEquals("0 0 N",rover.getPosition());
     }
 
     @Test
@@ -26,25 +26,13 @@ public class RoverTest {
     @Test
     public void testTurnLeft(){
         Rover rover = new Rover(5,5,'N');
-        //System.out.println("Left turn N : ");
-        //System.out.print(rover.turnLeft());
-        //System.out.print(rover.turnLeft());
-        //System.out.print(rover.turnLeft());
-        //System.out.print(rover.turnLeft());
-        //System.out.print(rover.turnLeft());
-        assertEquals('W', rover.turnLeft());
+        assertEquals('W', rover.left());
     }
 
     @Test
     public void testTurnRight(){
         Rover rover = new Rover(5,5,'N');
-        //System.out.print("Right turn N : ");
-        //System.out.print(rover.turnRight());
-        //System.out.print(rover.turnRight());
-        //System.out.print(rover.turnRight());
-        //System.out.print(rover.turnRight());
-        //System.out.print(rover.turnRight());
-        assertEquals('E', rover.turnRight());
+        assertEquals('E', rover.right());
     }
 
     @Test
