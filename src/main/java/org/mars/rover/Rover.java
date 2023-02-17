@@ -35,20 +35,20 @@ public class Rover {
                 : movingSeq.get(index - 1);
     }
 
-    public String move() {
+    public String move(int plateau_x, int plateau_y) {
 
         switch (rover_direction) {
             case 'N':
-                ++y_axis;
+                y_axis = y_axis < plateau_y ? ++y_axis : y_axis;
                 break;
             case 'E':
-                ++x_axis;
+                x_axis = x_axis < plateau_x ? ++x_axis : x_axis;
                 break;
             case 'S':
-                --y_axis;
+                y_axis = y_axis > 0 ? --y_axis : y_axis;
                 break;
             case 'W':
-                --x_axis;
+                x_axis = x_axis > 0 ? --x_axis : x_axis;
                 break;
         }
         return x_axis + " " + y_axis + " " + rover_direction;

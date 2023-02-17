@@ -38,22 +38,31 @@ public class RoverTest {
     @Test
     public void testMoveRoverOneStepNorth(){
         Rover rover = new Rover(3,2,'N');
-        assertEquals("3 3 N", rover.move());
+        assertEquals("3 3 N", rover.move(6, 6));
     }
 
     @Test
     public void testMoveRoverOneStepSouth(){
         Rover rover = new Rover(3,2,'S');
-        assertEquals("3 1 S", rover.move());
+        assertEquals("3 1 S", rover.move(6, 6));
     }
     @Test
     public void testMoveRoverOneStepEast(){
         Rover rover = new Rover(3,2,'E');
-        assertEquals("4 2 E", rover.move());
+        assertEquals("4 2 E", rover.move(7, 7));
     }
     @Test
     public void testMoveRoverOneStepWest(){
         Rover rover = new Rover(3,2,'W');
-        assertEquals("2 2 W", rover.move());
+        assertEquals("2 2 W", rover.move(7, 7));
+    }
+
+    @Test
+    public void testMoveRoverOneStepWestBeyond(){
+        Rover rover = new Rover(3,2,'W');
+        assertEquals("2 2 W", rover.move(3, 3));
+        assertEquals("1 2 W", rover.move(3, 3));
+        assertEquals("0 2 W", rover.move(3, 3));
+        assertEquals("0 2 W", rover.move(3, 3));
     }
 }

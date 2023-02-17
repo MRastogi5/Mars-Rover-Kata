@@ -1,10 +1,14 @@
-package org.mars.rover;
+package org.mars.plataeu;
+
+import org.mars.rover.Rover;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Plateau {
 
+    private int x_axis;
+    private int y_axis;
     public int getX_axis() {
         return x_axis;
     }
@@ -21,9 +25,6 @@ public class Plateau {
         this.y_axis = y_axis;
     }
 
-    private int x_axis;
-    private int y_axis;
-
     public List<Rover> getRovers() {
         return rovers;
     }
@@ -39,14 +40,15 @@ public class Plateau {
     private List<Rover> rovers = new ArrayList<>();
 
     private static Plateau plateau;
+
     private Plateau(int x, int y) {
         this.x_axis = x;
         this.y_axis = y;
     }
 
-    public static synchronized Plateau getInstance(int x, int y) {
+    public static Plateau getInstance(int x, int y) {
         if (plateau == null)
-            plateau=new Plateau(x,y);
+            plateau = new Plateau(x, y);
         return plateau;
     }
 
